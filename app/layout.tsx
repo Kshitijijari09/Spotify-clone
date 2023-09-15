@@ -1,6 +1,8 @@
+import ModalProvider from '@/providers/ModalProvider'
 import './globals.css'
 import Sidebar from '@/Components/Sidebar'
 import SupabaseProvider from '@/providers/SupabaseProvider'
+import UserProvider from '@/providers/UserProvider'
 import type { Metadata } from 'next'
 import { Figtree } from 'next/font/google'
 
@@ -20,9 +22,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <SupabaseProvider>
+          <UserProvider>
+          <ModalProvider />
           <Sidebar>
             {children}
           </Sidebar>
+          </UserProvider>
         </SupabaseProvider>
         </body>
     </html>
